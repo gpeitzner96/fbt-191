@@ -12,5 +12,5 @@
 Use the following command:
 
 ```
-yarn start
+yarn install && yarn start
 ```
