@@ -103,7 +103,9 @@ describe("Testing Site Readiness Form", () => {
   });
 
   it("Should not show an error message when the form is submitted and all fields are good", () => {
-    cy.contains("Yes, internet is active and meets minimum speed requirements");
+    cy.contains(
+      "Yes, internet is active and meets minimum speed requirements"
+    ).click();
     cy.contains("Submit").click();
     cy.intercept("/form-builder-api/v1/form/", (req) => {
       req.continue((res) => {

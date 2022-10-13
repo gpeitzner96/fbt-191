@@ -102,8 +102,13 @@ describe("Testing Seniors Convert Form", () => {
   });
 
   it("Should show an error message when the telus account number is less than 8", () => {
-    cy.get('input[id="input-32"]').type("1234567").type("{enter}");
+    cy.get('input[id="input-32"]').type("5").type("{enter}");
     cy.contains("Please enter a valid number");
+  });
+
+  it("Should not show an error message when the telus account number is greater than 8", () => {
+    cy.get('input[id="input-32"]').type("9").type("{enter}");
+    cy.contains("Please enter a valid number").should("not.exist");
   });
 
   it("Should show an error message when no telus current mobile phone number is provided", () => {
